@@ -6,6 +6,13 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { profileSchema } from "./schemas";
 
+function renderError(error: unknown) {
+  console.log(error);
+  return {
+    message: error instanceof Error ? error.message : "An error occurred",
+  };
+}
+
 const getAuthUser = async () => {
   const user = await currentUser();
   if (!user) {
@@ -38,10 +45,7 @@ export const createProfileAction = async (
       },
     });
   } catch (error) {
-    console.log(error);
-    return {
-      message: error instanceof Error ? error.message : "An error occurred",
-    };
+    return renderError(error);
   }
   redirect("/");
 };
@@ -77,5 +81,23 @@ export const updateProfileAction = async (
   prevState: any,
   formData: FormData
 ): Promise<{ message: string }> => {
-  return { message: "update profile action" };
+  try {
+    const user = await getAuthUser();
+    const rawData = Object.fromEntries(formData);
+    const validatedFields = profileSchema.safeParse(rawData);
+    if (!validatedFields.success) {
+      const errors = validatedFields.error.errors.map((error) => error.message);
+      throw new Error(errors.join(","));
+    }
+    await db.profile.update({
+      where: {
+        clerkId: user.id,
+      },
+      data: validatedFields.data,
+    });
+    revalidatePath("/profile");
+    return { message: "Profile updated successfully" };
+  } catch (error) {
+    return renderError(error);
+  }
 };

@@ -39,7 +39,6 @@ function CreateProperty() {
             name="description"
             labelText="Description (10 - 1000 Words)"
           />
-          <SubmitButton text="create rental" className="mt-12" />
           <div className="grid sm:grid-cols-2 gap-8 mt-4">
             <CountriesInput />
             <ImageInput />
@@ -53,6 +52,7 @@ function CreateProperty() {
           <CounterInput detail="baths" />
           <h3 className="text-lg mt-10 mb-6 font-medium">Amenities</h3>
           <AmenitiesInput />
+          <SubmitButton text="create rental" className="mt-12" />
         </FormContainer>
       </div>
     </section>

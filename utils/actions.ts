@@ -98,3 +98,12 @@ export const updateProfileAction = async (
     return renderError(error);
   }
 };
+
+export async function updateProfileImageAction(
+  prevState: unknown,
+  formData: FormData
+): Promise<{ message: string }> {
+  const rawData = Object.fromEntries(formData);
+
+  return { message: "hey" };
+}

@@ -5,12 +5,15 @@ import BreadCrumbs from "@/components/properties/BreadCrumbs";
 import ImageContainer from "@/components/properties/ImageContainer";
 import PropertyDetails from "@/components/properties/PropertyDetials";
 import ShareButton from "@/components/properties/ShareButton";
+import UserInfo from "@/components/properties/UserInfo";
 import { fetchPropertyDetails } from "@/utils/actions";
 import { redirect } from "next/navigation";
 
 async function PropertyDetailsPage({ params }: { params: { id: string } }) {
   const property = await fetchPropertyDetails(params.id);
   if (!property) redirect("/");
+  const profileImage = property.profile.profileImage;
+  const firstName = property.profile.firstName;
   const { baths, bedrooms, beds, guests } = property;
   const details = { baths, bedrooms, beds, guests };
   return (
@@ -31,6 +34,7 @@ async function PropertyDetailsPage({ params }: { params: { id: string } }) {
             <PropertyRating inPage propertyId={property.id} />
           </div>
           <PropertyDetails details={details} />
+          <UserInfo profile={{ firstName, profileImage }} />
         </div>
         <div className="lg:col-span-4 flex flex-col items-center">
           {/*TODO:  calendar */}

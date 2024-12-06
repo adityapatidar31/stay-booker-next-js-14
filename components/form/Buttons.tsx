@@ -74,7 +74,7 @@ export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
   );
 };
 
-import { LuTrash2, LuSquare } from "react-icons/lu";
+import { LuTrash2 } from "react-icons/lu";
 import { TbEdit } from "react-icons/tb";
 
 type actionType = "edit" | "delete";

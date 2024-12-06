@@ -1,5 +1,6 @@
 import { fetchPropertyReviews } from "@/utils/actions";
 import Title from "@/components/properties/Title";
+import ReviewCard from "./ReviewCard";
 
 async function PropertyReviews({ propertyId }: { propertyId: string }) {
   const reviews = await fetchPropertyReviews(propertyId);
@@ -17,7 +18,7 @@ async function PropertyReviews({ propertyId }: { propertyId: string }) {
             name: firstName,
             image: profileImage,
           };
-          return <div key={firstName}>Review Card</div>;
+          return <ReviewCard key={review.id} reviewInfo={reviewInfo} />;
         })}
       </div>
     </div>

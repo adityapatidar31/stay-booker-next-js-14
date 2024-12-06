@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Rating from "./Rating";
+import Comment from "./Comment";
 type ReviewCardProps = {
   reviewInfo: {
     comment: string;
@@ -31,6 +32,7 @@ function ReviewCard({ reviewInfo, children }: ReviewCardProps) {
           </div>
         </div>
       </CardHeader>
+      <Comment comment={reviewInfo.comment} />
       <CardContent></CardContent>
       {/* delete button later */}
       <div className="absolute top-3 right-3">{children}</div>

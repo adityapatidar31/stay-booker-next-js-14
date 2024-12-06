@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
+import Rating from "./Rating";
 type ReviewCardProps = {
   reviewInfo: {
     comment: string;
@@ -26,6 +27,7 @@ function ReviewCard({ reviewInfo, children }: ReviewCardProps) {
             <h3 className="text-sm font-bold capitalize mb-1">
               {reviewInfo.name}
             </h3>
+            <Rating rating={reviewInfo.rating} />
           </div>
         </div>
       </CardHeader>

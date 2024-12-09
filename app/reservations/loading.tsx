@@ -1,5 +1,8 @@
-function loading() {
-  return <div>Loading...</div>;
-}
+"use client";
 
+import LoadingTable from "@/components/booking/LoadingTable";
+
+function loading() {
+  return <LoadingTable />;
+}
 export default loading;

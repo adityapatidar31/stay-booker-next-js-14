@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Stay Booker
+
+Stay Booker is a comprehensive room booking platform designed to streamline the process of finding and managing accommodations. With intuitive features for users and hosts alike, Stay Booker offers a modern, accessible, and feature-rich experience.
+
+## Features
+
+- **Room Favorites**: Save your preferred rooms to a favorites list for quick and easy access.
+- **Booking Management**: Seamlessly view past bookings and manage upcoming reservations.
+- **Rental Creation**: Host your property by creating rentals that others can explore and book.
+- **User Profile Management**: Update your personal details and preferences anytime.
+- **Reviews and Ratings**: Post reviews for properties, and watch ratings dynamically update based on user feedback.
+- **Responsive Design**: Enjoy a seamless experience across desktop and mobile devices.
+
+---
+
+## Libraries Used and Their Purpose
+
+### Core Frameworks and Tools
+
+- **[Next.js](https://nextjs.org/)**: A React-based framework for building server-side rendered and statically generated web applications.
+- **[React](https://reactjs.org/)**: A powerful library for building user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/)**: Adds type safety to JavaScript for better development and maintainability.
+
+### Database and Backend
+
+- **[Prisma](https://www.prisma.io/)**: ORM for efficient database management and querying.
+- **[Supabase](https://supabase.com/)**: A backend-as-a-service tool providing authentication, storage, and real-time APIs.
+
+### Authentication
+
+- **[Clerk](https://clerk.dev/)**: Handles user authentication and account management with ease.
+
+### UI and Design
+
+- **[Radix UI](https://radix-ui.com/)**: A library of accessible, high-quality UI components.
+- **[TailwindCSS](https://tailwindcss.com/)**: A utility-first CSS framework for crafting modern, responsive designs.
+- **[Lucide React](https://lucide.dev/)**: Customizable, open-source icons for the web.
+- **[React-Day-Picker](https://react-day-picker.js.org/)**: A lightweight date-picker component for user-friendly calendar selection.
+
+### Maps and Charts
+
+- **[Leaflet](https://leafletjs.com/)**: Interactive maps for showcasing property locations.
+- **[React-Leaflet](https://react-leaflet.js.org/)**: A React wrapper for Leaflet.
+- **[Recharts](https://recharts.org/)**: Simple, composable charts for visualizing data.
+
+### State Management and Utilities
+
+- **[Zustand](https://zustand-demo.pmnd.rs/)**: A lightweight state management solution.
+- **[Zod](https://zod.dev/)**: Schema validation for ensuring safe data handling.
+- **[clsx](https://github.com/lukeed/clsx)** and **[class-variance-authority](https://github.com/joe-bell/cva)**: Manage class names for conditional styling.
+
+---
+
+## Environment Variables
+
+### `.env.local`
+
+These variables are required for Clerk and app URLs:
+
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`: Clerk's publishable API key for authentication.
+- `CLERK_SECRET_KEY`: Clerk's secret API key for server-side operations.
+- `NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL`: Fallback URL after sign-in.
+- `NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL`: Fallback URL after sign-up.
+
+### `.env`
+
+These variables configure the backend and database:
+
+- `ADMIN_USER_ID`: Admin user identifier for managing administrative tasks.
+- `NEXT_PUBLIC_WEBSITE_URL`: The base URL of the website.
+- `SUPABASE_KEY`: API key for Supabase services.
+- `SUPABASE_URL`: Base URL for the Supabase project.
+- `DIRECT_URL`: Direct URL for database access.
+- `DATABASE_URL`: Connection URL for the database.
+- `DB_PASSWORD`: Password for the database connection.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Install [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/).
+2. Configure the `.env` and `.env.local` files with the appropriate variables.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/stay_booker.git
+   ```
